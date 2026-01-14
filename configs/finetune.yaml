@@ -4,8 +4,8 @@ model:
   params:     
     lr: 6.0e-4
     monitor: val/bleu4
-    model_name: google/flan-t5-xl
-    cache_dir: /workspace/ai_intern/Kha/SpaMo/cache/models
+    model_name: google/flan-t5-large
+    cache_dir: /workspace/khanh/SpaMo/cache/models
     inter_hidden: 768
     input_size: 2048
     beam_size: 5

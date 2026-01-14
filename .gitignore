@@ -68,8 +68,40 @@ tmp/
 *.ipynb
 
 
-__pycache__
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
 
+# ============================================
+# SpaMo Project Specific - Heavy Files
+# ============================================
 
-/workspace/ai_intern/Kha/SpaMo/cache/
+# Extracted features (VERY HEAVY - GBs)
+features/
+
+# Model cache (downloaded models from HuggingFace)
+cache/
+
+# Training logs and checkpoints
+logs/
+wandb/
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+
+# Weights & Biases
+.wandb/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Model outputs
+outputs/
+results/
+checkpoints/
 

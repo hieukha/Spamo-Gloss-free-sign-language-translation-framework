@@ -2,14 +2,14 @@ import gdown
 import os
 
 # Thư mục lưu file
-save_dir = "/workspace/ai_intern/Kha/SpaMo/features/vit_feat_Phoenix14T"
+save_dir = "/workspace/khanh/SpaMo/features/vit_feat_Phoenix14T"
 os.makedirs(save_dir, exist_ok=True)
 
 # File ID từ link Google Drive mới
-file_id = "1OuPHH80YTeeRPEgbeYb0_KwQiA8Xfk2L"
+file_id = "1EbEagkjbUssEFJLen1wYqnfN1fmHcL_3"
 
 # Đặt tên file tải về (đuôi .ckpt)
-output_path = os.path.join(save_dir, "spa_feat_p14t.zip")
+output_path = os.path.join(save_dir, "mo_feat_p14t.zip")
 
 # URL tải trực tiếp
 url = f"https://drive.google.com/uc?id={file_id}"
