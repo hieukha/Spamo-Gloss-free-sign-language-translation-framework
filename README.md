@@ -108,3 +108,73 @@ Please cite our works if you find this repo is helpful.
   year={2025}
 }
 ```
+
+
+## Weights & Biases (wandb) Setup
+
+This project uses [Weights & Biases](https://wandb.ai/) for experiment tracking and logging. Below are the setup instructions and important notes.
+
+### Option 1: Using wandb Cloud (Recommended)
+
+1. **Create an account** at [wandb.ai](https://wandb.ai/)
+
+2. **Login to wandb**:
+   ```bash
+   wandb login --host https://api.wandb.ai
+   ```
+
+3. **Get your API key** from [https://wandb.ai/authorize](https://wandb.ai/authorize)
+
+4. **Paste the API key** when prompted (should be exactly 40 characters)
+
+5. **Run training** as usual:
+   ```bash
+   CUDA_VISIBLE_DEVICES=0 python main.py -c configs/finetune.yaml -e bleu
+   ```
+
+### Option 2: Disable wandb (Quick Start)
+
+If you don't want to use wandb logging, simply run:
+
+```bash
+WANDB_MODE=disabled CUDA_VISIBLE_DEVICES=0 python main.py -c configs/finetune.yaml -e bleu
+```
+
+### Important Notes
+
+#### API Key Format
+- **Old format (40 characters)**: `abc123def456ghi789...` - Works with `wandb login`
+- **New format (86+ characters)**: `wandb_v1_xxxxx...` - Use environment variable instead:
+  ```bash
+  export WANDB_API_KEY="your_api_key_here"
+  ```
+
+#### Common Issues & Solutions
+
+1. **Authentication Error (401 Unauthorized)**
+   ```bash
+   # Reset wandb configuration
+   rm -rf ~/.config/wandb
+   rm -f ~/.netrc
+   wandb logout
+   
+   # Login again
+   wandb login --host https://api.wandb.ai
+   ```
+
+2. **Accidentally started local server** (seeing `localhost:8099`):
+   ```bash
+   # Reset to use wandb.ai cloud
+   rm -rf ~/.config/wandb
+   rm -f ~/.netrc
+   wandb logout
+   wandb login --host https://api.wandb.ai
+   ```
+
+3. **Path not writable warning**:
+   - This is usually harmless; wandb will use a temp directory instead
+   - To fix: ensure write permissions on `logs/` directory
+
+#### Security Warning
+⚠️ **Never share your API key publicly!** If accidentally exposed, regenerate it at:
+[https://wandb.ai/settings](https://wandb.ai/settings) → Danger Zone → Regenerate API key

@@ -147,7 +147,7 @@ class FlanT5SLT(AbstractSLT):
         """
         
         # Load the textual model
-        self.t5_model = T5ForConditionalGeneration.from_pretrained(
+        self.t5_model = AutoModelForSeq2SeqLM.from_pretrained(
             t5_model, 
             cache_dir=self.cache_dir,
             torch_dtype=torch.bfloat16, 

@@ -4,7 +4,8 @@ model:
   params:     
     lr: 6.0e-4
     monitor: val/bleu4
-    model_name: google/flan-t5-large
+    #model_name: google/flan-t5-base
+    model_name: bigscience/mt0-base
     cache_dir: /workspace/khanh/SpaMo/cache/models
     inter_hidden: 768
     input_size: 2048

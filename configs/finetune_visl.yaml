@@ -12,7 +12,7 @@ model:
     max_frame_len: 512
     max_txt_len: 128  # Increased for Vietnamese text
     frame_sample_rate: 1
-    prompt: "Translate the given sign language video into {}."
+    prompt: "Translate the given sentence into {}."
     tuning_type: lora
     lora_r: 16
     lora_alpha: 32
